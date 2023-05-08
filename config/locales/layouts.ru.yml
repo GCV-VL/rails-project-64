@@ -1,0 +1,11 @@
+ru:
+  layouts:
+    shared:
+      head:
+        title: Коллективный блог
+      nav:
+        logo: Логотип
+        new_post: Новый пост
+        sign_out: Выйти
+        sign_in: Войти
+        sign_up: Зарегистрироваться

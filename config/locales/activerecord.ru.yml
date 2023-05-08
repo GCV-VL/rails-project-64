@@ -1,0 +1,42 @@
+ru:
+  activerecord:
+
+    attributes:
+      user:
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        remember_me: 'Запомнить меня'
+      post:
+        title: 'Заголовок'
+        body: 'Содержание'
+        category: 'Категория'
+      post_comment:
+        content: 'Комментарий'
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              not_found: 'не найден'
+              taken: 'уже занят'
+              blank: 'не может быть пустым'
+              invalid: 'имеет неверное значение'
+            password:
+              blank: 'не может быть пустым'
+              too_short: 'недостаточной длины'
+            password_confirmation:
+              confirmation: 'не совпадает со значением поля Пароль'
+        post:
+          attributes:
+            title:
+              blank: 'не может быть пустым'
+            body:
+              blank: 'не может быть пустым'
+              too_short: 'недостаточной длины'
+            category:
+              required: 'должна быть выбрана из списка'
+        post_comment:
+          attributes:
+            content:
+              blank: 'не может быть пустым'

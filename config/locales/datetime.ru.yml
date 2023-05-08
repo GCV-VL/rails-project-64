@@ -1,0 +1,47 @@
+ru:
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: около %{count} часа
+        other: около %{count} часов
+      about_x_months:
+        one: около %{count} месяца
+        other: около %{count} месяцев
+      about_x_years:
+        one: около %{count} года
+        other: около %{count} лет
+      almost_x_years:
+        one: почти %{count} год
+        other: почти %{count} лет
+      half_a_minute: полминуты
+      less_than_x_seconds:
+        one: меньше %{count} секунды
+        other: меньше %{count} секунд
+      less_than_x_minutes:
+        one: меньше минуты
+        other: меньше %{count} минут
+      over_x_years:
+        one: больше %{count} года
+        other: больше %{count} лет
+      x_seconds:
+        one: "%{count} секунда"
+        other: "%{count} секунд"
+      x_minutes:
+        one: "%{count} минута"
+        other: "%{count} минут"
+      x_days:
+        one: "%{count} день"
+        other: "%{count} дней"
+      x_months:
+        one: "%{count} месяц"
+        other: "%{count} месяцев"
+      x_years:
+        one: "%{count} год"
+        other: "%{count} лет"
+    prompts:
+      second: Секунда
+      minute: Минута
+      hour: Час
+      day: День
+      month: Месяц
+      year: Год

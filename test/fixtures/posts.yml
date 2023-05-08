@@ -1,0 +1,11 @@
+one:
+  title: Faker::Lorem.unique.sentence
+  body: Faker::Lorem.unique.paragraph
+  creator: current_user
+  category: one
+
+with_like:
+  title: Faker::Lorem.unique.sentence
+  body: Faker::Lorem.unique.paragraph
+  creator: current_user
+  category: two
