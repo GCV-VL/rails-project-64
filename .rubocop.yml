@@ -8,11 +8,15 @@ AllCops:
     - "**/*.gemspec"
     - "spec/**"
   NewCops: enable
+  TargetRailsVersion: 7
   TargetRubyVersion: 3.1.2
   SuggestExtensions: false
 
 Layout/LineLength:
   Enabled: false
+
+Rails:
+  Enabled: true
 
 Metrics/AbcSize:
   Enabled: false
