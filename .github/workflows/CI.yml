@@ -2,18 +2,17 @@ name: CI
 
 on:
   push:
-  pull_request:
     branches:
-      - master
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    run-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
     strategy:
       matrix:
         ruby:
-          - '3.2.2'
+          - '3.1.2'
 
     steps:
     - uses: actions/checkout@v3
@@ -23,11 +22,6 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
 
-   - name: Install dependencies
-     run: make install
-
-   - name: Run linters
-     run: make lint
-
-   - name: Run tests
-     run: make test
+    - run: make ci-setup
+    - run: make lint
+    - run: make test
