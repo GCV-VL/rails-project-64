@@ -93,3 +93,5 @@ gem 'sentry-ruby'
 
 gem 'ancestry'
 gem 'devise'
+
+gem 'bootstrap'
