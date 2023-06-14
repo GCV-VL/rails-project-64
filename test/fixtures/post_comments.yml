@@ -1,4 +1,0 @@
-with_nested:
-  content: Faker::Lorem.unique.sentence
-  post: one
-  user: current_user
