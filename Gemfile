@@ -58,6 +58,10 @@ gem 'sentry-ruby'
 
 gem 'slim-rails'
 
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-bootstrap5'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -74,7 +78,10 @@ group :development do
   # gem "spring"
 
   gem 'rubocop-rails', require: false
+  gem 'html2slim', github: 'olleolleolle/html2slim'
   gem 'slim_lint'
+
+  gem 'foreman'
 end
 
 group :test do
@@ -92,5 +99,3 @@ end
 group :production do
   gem 'pg'
 end
-
-gem 'devise', '~> 4.9'
