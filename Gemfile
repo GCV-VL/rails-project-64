@@ -90,6 +90,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'ffaker'
 end
 
 group :development, :test do
