@@ -31,4 +31,7 @@ html.h-100
               a.nav-link.link-dark[href=new_user_registration_path]
                 | Зарегистрироваться
     .container.my-4
+      - flash.each do |type, msg|
+        .alert.alert-info
+          = msg
       = yield

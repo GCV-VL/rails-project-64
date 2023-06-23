@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    models:
+      post: "Пост"
+    attributes:
+      post:
+        title: "Заголовок"
+        category: "Категория"
+        body: "Содержание"
+  
+  posts:
+    published: "Пост опубликован"
+    all: "Все посты"

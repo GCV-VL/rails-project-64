@@ -54,8 +54,10 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'devise'
-gem 'devise-bootstrap5'
 gem 'devise-i18n'
+gem 'devise-bootstrap5'
+gem 'rails-i18n'
+
 gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'simple_form'
@@ -76,8 +78,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem 'rubocop-rails', require: false
   gem 'html2slim', github: 'olleolleolle/html2slim'
+  gem 'rubocop-rails', require: false
   gem 'slim_lint'
 
   gem 'foreman'
