@@ -2,14 +2,13 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!
-
-  def index; end
-
   def new 
     @post = Post.new
   end
 
-  def edit; end
+  def edit
+    @post = Post.find(params[:id])
+  end
 
   def show
     @post = Post.find(params[:id])
@@ -22,8 +21,18 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: I18n.t("posts.published")
     else
-      puts @post.errors.full_messages
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.creator = current_user
+
+    if @post.update(post_params)
+      redirect_to @post, notice: I18n.t("posts.published")
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
