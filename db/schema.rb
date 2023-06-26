@@ -10,20 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_013512) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "timescaledb"
-
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_094500) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_comments", force: :cascade do |t|
+    t.string "ancestry"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_post_comments_on_ancestry"
+  end
+
   create_table "posts", force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "creator_id", null: false
+    t.integer "category_id", null: false
+    t.integer "creator_id", null: false
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
