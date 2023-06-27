@@ -3,6 +3,7 @@ class CreatePostComments < ActiveRecord::Migration[7.0]
     create_table :post_comments do |t|
       t.string :ancestry
       t.string :content
+      t.belongs_to :post, null: false, foreign_key: true
 
       t.timestamps
     end
