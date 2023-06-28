@@ -11,3 +11,5 @@ ol.breadcrumb
       #post-section
         span.me-2= @post.creator.email
         span= distance_of_time_in_words(@post.created_at, Time.now)
+
+= render 'comments/index'

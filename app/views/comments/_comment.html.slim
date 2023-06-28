@@ -1,0 +1,21 @@
+.card.mt-2.rounded-0[id="comment-#{comment.id}"]
+  .card-header.border-0
+    a.me-2[href="#comment-#{comment.id}"]
+      | #
+    span.me-2
+      = comment.post.creator.email
+    - if comment.created_at
+      span.fs-6.text-muted
+        = l comment.created_at, format: :short
+  .card-body.border-0
+    p.card-text
+      = comment.content
+    span
+  .card-footer.border-0
+    a.fs-6.text-decoration-underline.text-lowercase[type="button" aria_exanded="false" aria_controls="response_comment-#{comment.id}" data-bs-target="#response_comment-#{comment.id}" data-bs-toggle="collapse" href="#"]
+      | Ответить
+    .ms-2.collapse[id="response_comment-#{comment.id}"]
+      = render 'comments/form', parent_id: comment.id
+  - unless comment.new_record?
+    .ms-4
+      = render partial: 'comments/comment', collection: comment.children

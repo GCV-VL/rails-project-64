@@ -1,0 +1,4 @@
+= simple_form_for [@post, PostComment.new] do |f|
+  = f.input :parent_id, as: :hidden, input_html: { value: local_assigns[:parent_id] }
+  = f.input :content, label: false, as: :text, input_html: { rows: 2 }
+  = f.button :submit, t('.submit'), class: 'btn-primary'
