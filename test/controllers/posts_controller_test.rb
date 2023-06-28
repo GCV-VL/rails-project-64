@@ -34,7 +34,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     title = FFaker::Lorem.sentence
     body = FFaker::Lorem.paragraph(10)
     post = posts(:one)
-    post_params = { creator: users(:one), title: title, category_id: categories(:one).id, body: body }
+    post_params = { creator: users(:one), title:, category_id: categories(:one).id, body: }
 
     put post_url(post), params: { post: post_params }
 

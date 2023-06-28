@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   belongs_to :category
   belongs_to :creator, class_name: 'User'
 
-  has_many :comments, -> { order(updated_at: :desc) }, class_name: 'PostComment'
+  has_many :comments, -> { order(updated_at: :desc) }, class_name: 'PostComment', dependent: :destroy, inverse_of: :post
 
   validates :title, presence: true, length: { in: 5..255 }
   validates :category, presence: true
