@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class LikesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
@@ -10,7 +12,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create like' do
     post = posts(:one)
-    like_params = { post: post, user: @user }
+    like_params = { post:, user: @user }
     assert_equal(2, PostLike.count)
     post post_post_likes_url(post), params: { post_like: like_params }
     assert_equal(3, PostLike.count)

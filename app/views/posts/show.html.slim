@@ -14,7 +14,7 @@ ol.breadcrumb
       #likes-section
         span.me-2
           = @post.likes.count
-        - if like_exists?
+        - if like_exists?(@post)
           a.link-dark[data-turbo-method="delete" href="/posts/#{@post.id}/post_likes/1"]
             i.bi.bi-hand-thumbs-up-fill
         - else
