@@ -11,3 +11,12 @@ ru:
   posts:
     published: "Пост опубликован"
     all: "Все посты"
+    show:
+      comments: "Комментарии"
+
+  comments:
+    published: "Комментарий опубликован"
+    index:
+      comments: "Комментарии"
+    form:
+      submit: "Оставить комментарий"
