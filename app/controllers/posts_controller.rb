@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  def new 
+  def new
     @post = Post.new
   end
 
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post.creator = current_user
 
     if @post.save
-      redirect_to @post, notice: I18n.t("posts.published")
+      redirect_to @post, notice: I18n.t('posts.published')
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     @post.creator = current_user
 
     if @post.update(post_params)
-      redirect_to @post, notice: I18n.t("posts.published")
+      redirect_to @post, notice: I18n.t('posts.published')
     else
       render :edit, status: :unprocessable_entity
     end

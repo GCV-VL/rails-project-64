@@ -1,22 +1,32 @@
 ru:
   activerecord:
     models:
-      post: "Пост"
+      post: 'Пост'
     attributes:
       post:
-        title: "Заголовок"
-        category: "Категория"
-        body: "Содержание"
+        title: 'Заголовок'
+        category: 'Категория'
+        body: 'Содержание'
+  
+  layouts:
+    application:
+      sign_in: 'Войти'
+      sign_up: 'Зарегистрироваться'
+      sign_out: 'Выйти'
+      new_post: 'Новый пост'
   
   posts:
-    published: "Пост опубликован"
-    all: "Все посты"
+    published: 'Пост опубликован'
+    all: 'Все посты'
+    new:
+      new_post: 'Новый пост'
+      submit: 'Опубликовать'
     show:
-      comments: "Комментарии"
+      comments: 'Комментарии'
 
   comments:
-    published: "Комментарий опубликован"
+    published: 'Комментарий опубликован'
     index:
-      comments: "Комментарии"
+      comments: 'Комментарии'
     form:
-      submit: "Оставить комментарий"
+      submit: 'Оставить комментарий'
