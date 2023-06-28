@@ -30,3 +30,7 @@ ru:
       comments: 'Комментарии'
     form:
       submit: 'Оставить комментарий'
+
+  likes:
+    published: 'Лайк добавлен'
+    unpublished: 'Лайк удален'

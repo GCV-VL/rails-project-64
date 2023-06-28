@@ -11,5 +11,14 @@ ol.breadcrumb
       #post-section
         span.me-2 = @post.creator.email
         span = distance_of_time_in_words(@post.created_at, Time.zone.now)
+      #likes-section
+        span.me-2
+          = @post.likes.count
+        - if like_exists?
+          a.link-dark[data-turbo-method="delete" href="/posts/#{@post.id}/post_likes/1"]
+            i.bi.bi-hand-thumbs-up-fill
+        - else
+          a.link-dark[data-turbo-method="post" href="/posts/#{@post.id}/post_likes"]
+            i.bi.bi-hand-thumbs-up
 
 = render 'comments/index'
