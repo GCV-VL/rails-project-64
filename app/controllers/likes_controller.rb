@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    unless @post.likes.exists?(user: current_user)
+    if @post.likes.exists?(user: current_user)
+      head :ok
+    else
       @like = @post.likes.create(user: current_user)
       redirect_to @post, notice: I18n.t('likes.published')
-    else
-      head :ok
     end
   end
 
