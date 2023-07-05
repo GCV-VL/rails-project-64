@@ -25,5 +25,6 @@ module.exports = {
     'no-multi-spaces': 'off',
     'quotes': 'warn',
     'space-before-function-paren': 'warn',
+    'no-unused-vars': 'warn',
   }
 }
