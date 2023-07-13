@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_041427) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "timescaledb"
-
+ActiveRecord::Schema[7.0].define(version: 2023_07_13_050128) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -24,16 +20,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_041427) do
   create_table "post_comments", force: :cascade do |t|
     t.string "ancestry"
     t.string "content"
-    t.bigint "post_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["ancestry"], name: "index_post_comments_on_ancestry"
     t.index ["post_id"], name: "index_post_comments_on_post_id"
+    t.index ["user_id"], name: "index_post_comments_on_user_id"
   end
 
   create_table "post_likes", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_post_likes_on_post_id"
@@ -41,8 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_041427) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "creator_id", null: false
+    t.integer "category_id", null: false
+    t.integer "creator_id", null: false
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
@@ -64,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_041427) do
   end
 
   add_foreign_key "post_comments", "posts"
+  add_foreign_key "post_comments", "users"
   add_foreign_key "post_likes", "posts"
   add_foreign_key "post_likes", "users"
   add_foreign_key "posts", "categories"
