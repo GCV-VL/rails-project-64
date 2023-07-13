@@ -2,10 +2,10 @@
 
 one:
   post: one
-  ancestry: MyString
+  user: one
   content: MyString
 
 two:
   post: two
-  ancestry: MyString
+  user: two
   content: MyString

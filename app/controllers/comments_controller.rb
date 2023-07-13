@@ -3,7 +3,7 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params)
+    @comment = @post.comments.build(comment_params.merge(user_id: current_user.id))
 
     return unless @comment.save
 

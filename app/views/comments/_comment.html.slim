@@ -3,7 +3,7 @@
     a.me-2[href="#comment-#{comment.id}"]
       | #
     span.me-2
-      = comment.post.creator.email
+      = comment.user&.email
     - if comment.created_at
       span.fs-6.text-muted
         = l comment.created_at, format: :short
