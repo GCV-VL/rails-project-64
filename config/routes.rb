@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :posts do
-    resources :post_comments, controller: 'comments'
+    resources :comments, controller: 'comments'
     resources :likes, controller: 'likes'
   end
 end
