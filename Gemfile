@@ -92,7 +92,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'ffaker'
+  gem 'faker'
 end
 
 group :development, :test do

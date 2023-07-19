@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: I18n.t('posts.published')
     else
+      p @post.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end

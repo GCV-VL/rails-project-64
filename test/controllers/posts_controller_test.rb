@@ -25,14 +25,14 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create post' do
-    post_params = { creator: users(:one), title: FFaker::Lorem.sentence, category_id: categories(:one).id, body: FFaker::Lorem.paragraph(10) }
+    post_params = { creator: users(:one), title: Faker::Lorem.sentence, category_id: categories(:one).id, body: Faker::Lorem.paragraphs(number: 10).join("\n") }
     post posts_url, params: { post: post_params }
     assert_redirected_to post_url(Post.last)
   end
 
   test 'should update post' do
-    title = FFaker::Lorem.sentence
-    body = FFaker::Lorem.paragraph(10)
+    title = Faker::Lorem.sentence
+    body = Faker::Lorem.paragraphs(number: 10).join("\n")
     post = posts(:one)
     post_params = { creator: users(:one), title:, category_id: categories(:one).id, body: }
 
