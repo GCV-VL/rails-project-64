@@ -3,15 +3,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post = Post.new
   end
 
   def edit
-    @post = Post.find(params[:id])
-  end
-
-  def show
     @post = Post.find(params[:id])
   end
 
@@ -22,7 +22,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: I18n.t('posts.published')
     else
-      p @post.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
