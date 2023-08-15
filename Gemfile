@@ -93,6 +93,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'faker'
+  gem 'power_assert'
 end
 
 group :development, :test do
