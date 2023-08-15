@@ -8,6 +8,5 @@ class Post < ApplicationRecord
   has_many :likes, class_name: 'PostLike', dependent: :destroy, inverse_of: :post
 
   validates :title, presence: true, length: { in: 5..255 }
-  validates :category
   validates :body, presence: true, length: { in: 200..4000 }
 end
