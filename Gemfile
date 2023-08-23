@@ -54,8 +54,8 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'devise'
-gem 'devise-i18n'
 gem 'devise-bootstrap5'
+gem 'devise-i18n'
 gem 'rails-i18n'
 
 gem 'sentry-rails'
@@ -90,10 +90,10 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'faker'
   gem 'minitest-power_assert'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 group :development, :test do
