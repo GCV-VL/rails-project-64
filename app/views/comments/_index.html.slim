@@ -1,0 +1,4 @@
+.lead.mt-3#comment-section
+  span = t('.comments')
+  = render 'comments/form'
+  = render partial: 'comments/comment', collection: @post.comments.roots

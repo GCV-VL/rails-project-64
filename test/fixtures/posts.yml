@@ -1,11 +1,13 @@
-one:
-  title: Faker::Lorem.unique.sentence
-  body: Faker::Lorem.unique.paragraph
-  creator: current_user
-  category: one
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-with_like:
-  title: Faker::Lorem.unique.sentence
-  body: Faker::Lorem.unique.paragraph
-  creator: current_user
+one:
+  category: one
+  creator: one
+  title: MyString
+  body: MyString
+
+two:
   category: two
+  creator: two
+  title: MyString
+  body: MyString

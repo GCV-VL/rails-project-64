@@ -14,8 +14,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  # config.consider_all_requests_local = true
-  config.consider_all_requests_local = false
+  config.consider_all_requests_local = true
 
   # Enable server timing
   config.server_timing = true
@@ -43,8 +42,6 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

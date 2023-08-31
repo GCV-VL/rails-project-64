@@ -3,25 +3,18 @@
 require 'test_helper'
 
 module PostsControllerTest
-  class Actions < ActionDispatch::IntegrationTest
+  class AsGuest < ActionDispatch::IntegrationTest
+    test 'should get show' do
+      get post_url(posts(:one))
+      assert_response :success
+    end
+  end
+
+  class AsSignedUser < ActionDispatch::IntegrationTest
     include Devise::Test::IntegrationHelpers
 
     setup do
-      @current_user = users :current_user
-      sign_in @current_user
-
-      @post = posts :one
-
-      @attrs = {
-        title: Faker::Lorem.sentence,
-        body: Faker::Lorem.characters(number: 100),
-        category_id: categories(:one).id
-      }
-    end
-
-    test 'should get root' do
-      get root_url
-      assert_response :success
+      sign_in(users(:one))
     end
 
     test 'should get new' do
@@ -29,45 +22,33 @@ module PostsControllerTest
       assert_response :success
     end
 
-    test 'should create post' do
-      post posts_url, params: { post: @attrs }
-
-      post = Post.find_by @attrs.merge({
-                                         creator: @current_user
-                                       })
-
-      assert { post }
-      assert_redirected_to root_url
-    end
-
-    test 'should not create post due to validation' do
-      wrong_attrs = {
-        title: nil,
-        body: nil,
-        category_id: nil
-      }
-
-      post posts_url, params: { post: wrong_attrs }
-
-      post = Post.find_by wrong_attrs
-
-      assert { post.nil? }
-      assert_response :unprocessable_entity
-    end
-
-    test 'should show post' do
-      get post_url(@post)
+    test 'should get edit' do
+      get edit_post_url(posts(:one))
       assert_response :success
     end
-  end
 
-  class RedirectIfAccessDenied < ActionDispatch::IntegrationTest
-    test 'new should redirect to sign in' do
-      test_redirect_to_sign_in { get new_post_url }
+    test 'should get show' do
+      get post_url(posts(:one))
+      assert_response :success
     end
 
-    test 'create should redirect to sign in' do
-      test_redirect_to_sign_in { post posts_url }
+    test 'should create post' do
+      post_params = { creator: users(:one), title: Faker::Lorem.sentence, category_id: categories(:one).id, body: Faker::Lorem.paragraphs(number: 10).join("\n") }
+      post posts_url, params: { post: post_params }
+      assert_redirected_to post_url(Post.last)
+    end
+
+    test 'should update post' do
+      title = Faker::Lorem.sentence
+      body = Faker::Lorem.paragraphs(number: 10).join("\n")
+      post = posts(:one)
+      post_params = { creator: users(:one), title:, category_id: categories(:one).id, body: }
+
+      put post_url(post), params: { post: post_params }
+
+      assert_redirected_to post_url(post)
+      assert_equal(title, post.reload.title)
+      assert_equal(body, post.reload.body)
     end
   end
 end

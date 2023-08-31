@@ -3,25 +3,33 @@ ru:
     "yes": 'Да'
     "no": 'Нет'
     required:
-      text: 'обязательное'
+      text: 'Необходимо заполнить'
       mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: Проверьте введенные данные
-
-    sign_up:
-      title: Регистрация
-      hints:
-        password:
-          minimum_password_length: (минимум %{count} знаков)
-      submit_button: Регистрация
-    sign_in:
-      title: Войти
-      submit_button: Войти
-    forgot_password:
-      title: Забыли пароль?
-      submit_button: Выслать новый пароль
-    post:
-      title: Новый пост
-      submit_button: Опубликовать
-    comment:
-      submit_button: Оставить комментарий
+      default_message: 'Проверьте введенные данные'
+    hints:
+      post:
+        title: '5-255 символов'
+        body: 'От 200 до 4000 символов'
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'

@@ -2,40 +2,28 @@
 
 require 'test_helper'
 
-module LikesControllerTest
-  class Actions < ActionDispatch::IntegrationTest
-    include Devise::Test::IntegrationHelpers
+class LikesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
 
-    setup do
-      @current_user = users :current_user
-      sign_in @current_user
-    end
-
-    test 'should create like' do
-      test_post = posts :one
-
-      post post_likes_path(test_post)
-
-      like = PostLike.find_by({ post: test_post, user: @current_user })
-
-      assert { like }
-      assert_redirected_to test_post
-    end
-
-    test 'should delete like' do
-      post = posts :with_like
-      like = post_likes :one
-
-      delete post_like_path(post, like)
-
-      assert { post.likes.find_by(id: like.id).nil? }
-      assert_redirected_to post
-    end
+  setup do
+    @user = users(:two)
+    sign_in(@user)
   end
 
-  class RedirectIfAccessDenied < ActionDispatch::IntegrationTest
-    test 'create should redirect to sign in' do
-      test_redirect_to_sign_in { post post_likes_path(posts(:one)) }
-    end
+  test 'should create like' do
+    post = posts(:one)
+    like_params = { post:, user: @user }
+    assert_equal(2, PostLike.count)
+    post post_likes_url(post), params: { post_like: like_params }
+    assert_equal(3, PostLike.count)
+    assert_redirected_to post_url(post)
+  end
+
+  test 'should destroy all likes for post and user' do
+    post = posts(:two)
+    assert_equal(1, post.likes.where(user: @user).count)
+    delete post_like_url(post, post.likes.where(user: @user).last)
+    assert_equal(0, post.likes.where(user: @user).count)
+    assert_redirected_to post_url(post)
   end
 end

@@ -2,17 +2,11 @@
 
 class Post < ApplicationRecord
   belongs_to :category
-  belongs_to :creator, class_name: 'User', foreign_key: 'user_id', inverse_of: :posts
+  belongs_to :creator, class_name: 'User'
 
-  has_many :comments, class_name: 'PostComment', dependent: :destroy
-  has_many :likes, class_name: 'PostLike', dependent: :destroy
+  has_many :comments, -> { order(updated_at: :desc) }, class_name: 'PostComment', dependent: :destroy, inverse_of: :post
+  has_many :likes, class_name: 'PostLike', dependent: :destroy, inverse_of: :post
 
-  validates :body, length: { minimum: 50 }
-  validates :title, :body, presence: true
-
-  scope :by_recently_created, -> { order(created_at: :desc) }
-
-  def find_like(user)
-    likes.find { |like| like.user_id == user.id }
-  end
+  validates :title, presence: true, length: { in: 5..255 }
+  validates :body, presence: true, length: { in: 200..4000 }
 end

@@ -1,4 +1,11 @@
-with_nested:
-  content: Faker::Lorem.unique.sentence
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
   post: one
-  user: current_user
+  user: one
+  content: MyString
+
+two:
+  post: two
+  user: two
+  content: MyString

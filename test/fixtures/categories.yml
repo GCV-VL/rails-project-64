@@ -1,8 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
 one:
-  name: Category 1
+  name: MyString
 
 two:
-  name: Category 2
-
-three:
-  name: Category 3
+  name: MyString

@@ -2,17 +2,15 @@
 
 Rails.application.routes.draw do
   devise_for :users
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  root 'posts#index'
+  # Defines the root path route ("/")
+  # root "articles#index"
 
-  resources :posts, only: %i[index show new create] do
-    scope module: :posts do
-      resources :comments, only: :create
-      resources :likes, only: %i[create destroy]
-    end
+  root 'home#index'
+
+  resources :posts do
+    resources :comments, controller: 'comments'
+    resources :likes, controller: 'likes'
   end
-
-  match '/404', via: :all, to: 'errors#not_found'
-  match '/422', via: :all, to: 'errors#unprocessable_entity'
-  match '/500', via: :all, to: 'errors#server_error'
 end
