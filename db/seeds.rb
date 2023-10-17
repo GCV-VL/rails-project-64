@@ -10,5 +10,5 @@
 
 3.times.each do |i|
   name = "Категория #{i + 1}"
-  Category.create(name: name) unless Category.exists?(name: name)
+  Category.create(name:) unless Category.exists?(name:)
 end
